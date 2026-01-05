@@ -23,9 +23,27 @@ function displayWord(wordData) {
 
     const wordHeader = document.createElement('h2');
     wordHeader.textContent = wordData.word;
-     
+
     const phonetic = wordData.phonetics[0]?.text || 'N/A';
     const phoneticElement = document.createElement('p');
     phoneticElement.textContent = `Pronunciation: ${phonetic}`;
     results.append(wordHeader, phoneticElement);
 }
+
+wordData.meanings.forEach(meaning => {
+    const partOfSpeech = document.createElement('h3');
+    partOfSpeech.textContent = meaning.partOfSpeech;
+
+    meaning.definitions.forEach(def => {
+        const defElement = document.createElement('div')
+        defElement.classList.add('definition');
+        defElement.innerHTML = `<strong>Definition:</strong> ${def.definition}
+        <br><em>Example:</em> ${def.example || 'No example available'}`;
+        results.append(partOfSpeech, defElement);
+    })
+    if (meaning.synonyms.length) {
+        const synonymElement = document.createElement('p');
+        synonymElement.innerHTML = `<strong>Synonyms:</strong> ${meaning.synonyms.join(', ')}`;
+        results.appendChild(synonymElement);
+    }
+});
