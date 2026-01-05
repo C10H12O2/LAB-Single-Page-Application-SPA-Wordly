@@ -17,3 +17,15 @@ form.addEventListener('submit', async (e) => {
         results.innerHTML = `<p style="color:red;">${error.message}</p>`;
     }
 });
+
+function displayWord(wordData) {
+    results.innerHTML = '';
+
+    const wordHeader = document.createElement('h2');
+    wordHeader.textContent = wordData.word;
+     
+    const phonetic = wordData.phonetics[0]?.text || 'N/A';
+    const phoneticElement = document.createElement('p');
+    phoneticElement.textContent = `Pronunciation: ${phonetic}`;
+    results.append(wordHeader, phoneticElement);
+}
