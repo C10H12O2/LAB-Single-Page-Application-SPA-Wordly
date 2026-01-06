@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worldy Dictionary SPA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="app-wrapper">
+        <div class="card">
+            <header class="app-header">
+                <h1>Wordly Dictionary</h1>
+                <p class="subtitle">I (Eugene Ogutu) made this app as a lab project. This is basically a web dictionary
+                    so go ahead and search for any word you wish to know the meaning of. </p>
+            </header>
+            <form id="search-form" aria-label="Search dictionary">
+                <input id="word-input" type="text" placeholder="Search a word" aria-label="Search Dictionary" autofocus
+                    required />
+                <button type="submit">Search</button>
+            </form>
+
+            <section id="results" aria-live="polite">
+                <div class="word-card">
+                    <div class="word-header">
+                        <h2 id="word-title"></h2>
+                        <span id="phonetics"></span>
+                    </div>
+
+                    <p class="part-of-speech" id="part-of-speech"></p>
+
+                    <p class="definition" id="definition-text"></p>
+                    <p class="example" id="example-text"></p>
+                    <p id="error-message" class="error hidden"></p>
+
+                    <div class="synonyms" id="synonyms-text"></div>
+                </div>
+                <button id="audio-btn" class="audio hidden" aria-label="Play pronunciation">
+                    🔊
+                </button>
+            </section>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+
+</html>
